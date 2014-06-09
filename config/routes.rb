@@ -6,8 +6,12 @@ BananakickWorldcup::Application.routes.draw do
   get 'static' => 'application#index'
   root 'application#index'
 
-  resources :groups
-  resources :players, :teams
+  resources :admin, only: [:index]
+
+  resources :groups, :teams
+  resources :players do
+    post 'custom_update' => "players#custom_update"
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

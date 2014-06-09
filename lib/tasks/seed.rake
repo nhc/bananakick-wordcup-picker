@@ -60,10 +60,12 @@ namespace :seed do
     Team.create(name: "Russia", group: g)
     Team.create(name: 'South Korea', group: g)
 
-    name = %w( Jamie Oliver Lou Sian Luke Lorna Sara Poppy James Jess Ash Meg Mike Barney Sankey Jordan April Dave Phil Tom Emma Gav Alex Andy Matt Coups Thea Ed Janice Rich Gary Nick-G Claire Katherine Vic  )
+    Team.create(name: '-- BLANK --')
+
+    name = %w( Jamie Oliver Lou Sian Luke Lorna Sara Poppy James Jess Ash Meg Mike Barney Sankey Jordan April Dave Phil Tom Emma Gav Alex Andy Matt Coups Thea Ed Janice Rich Gary Nick-G Claire Katherine Vic )
     
     name.each do |n|
-        Player.create(name: n)
+        Player.create(name: n.to_s)
     end
   end
 
