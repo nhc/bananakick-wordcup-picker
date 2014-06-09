@@ -25,3 +25,5 @@ class window.wc
 					if v.player && v.player.id > 0
 						if v.team && v.team.id > 0
 							$('#gb-'+v.id).html(v.player.name + ' / ' + v.team.name )
+						else
+							$('#gb-'+v.id).html('')
