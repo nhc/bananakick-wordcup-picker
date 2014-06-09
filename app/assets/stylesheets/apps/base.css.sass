@@ -1,14 +1,22 @@
+$yellow: #fff200
+$page-width: 1200px
 *
 	margin: 0
 
 html, body
 	height: 100%
 
+body
+	background: $yellow
+	font-family: sans-serif
+
 #wrap
 	min-height: 100%
 	height: auto !important
 	height: 100%
 	margin: 0 auto -4em
+	padding: 100px
+	min-width: $page-width
 
 #push, #footer
 	height: 4em
@@ -17,6 +25,58 @@ html, body
 	background: #ccc
 	color: #fff
 
-
 #team-list
 	margin-top: 20px
+
+.main-row
+	clear: both
+	min-width: $page-width
+	display-block
+	
+
+section.group,
+section.logo
+	float: left
+	margin: 0 30px 30px 0
+	min-width: 300px
+	width: 30%
+	background: #fff
+	box-shadow: 0 0 0 5px $yellow, 0 0 0 8px white
+
+	&:last-child
+		margin-right: 0
+	
+	.title
+		padding: 10px
+		background: #000
+		color: #fff
+
+	.team-row
+		padding: 10px
+		.team 
+			text-transform: uppercase
+			img
+				position: relative
+				top: 3px
+				margin-right: 10px
+		.player
+			float: right
+			color: #000
+			font-size: 1.1em
+			font-weight: bold
+			margin-right: 10px
+
+section.logo
+	box-shadow: none
+	
+	.middle
+		width: 390px
+		margin: 0 auto
+		position: relative
+		img
+			position: absolute
+			width: 400px
+			top: -30px
+			
+
+

@@ -7,6 +7,7 @@ BananakickWorldcup::Application.routes.draw do
   root 'application#index'
 
   resources :groups
+  resources :players, :teams
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

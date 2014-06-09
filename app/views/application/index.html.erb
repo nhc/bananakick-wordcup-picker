@@ -1,14 +1,136 @@
-<div id="wrap">
-	<div id="header"></div>
-	<div id="main"></div>
-	<div id="push"></div>
+<div id="wrap">	
+
+	<div class="main-row">
+	
+			<section class="group">
+				<div class="title"><%= @groupA.name %></div>
+				
+				<% 4.times do |counter| %>
+					<div class="team-row">
+						<div class="player" id="player-<%= @groupA.teams[counter].id %>"></div>
+						<div class="team"><%= image_tag "#{@groupA.teams[counter].name.downcase.gsub(/\s+/, "")}.png", :width => 30 %> <%= @groupA.teams[counter].name %></div>
+					</div>
+				<% end %>
+			</section>
+
+			<section class="group">
+				<div class="title"><%= @groupB.name %></div>
+				
+				<% 4.times do |counter| %>
+					<div class="team-row">
+						<div class="player" id="player-<%= @groupB.teams[counter].id %>"></div>
+						<div class="team"><%= image_tag "#{@groupB.teams[counter].name.downcase.gsub(/\s+/, "")}.png", :width => 30 %> <%= @groupB.teams[counter].name %></div>
+					</div>
+				<% end %>
+			</section>
+
+			<section class="group">
+				<div class="title"><%= @groupC.name %></div>
+				
+				<% 4.times do |counter| %>
+					<div class="team-row">
+						<div class="player" id="player-<%= @groupC.teams[counter].id %>"></div>
+						<div class="team"><%= image_tag "#{@groupC.teams[counter].name.downcase.gsub(/\s+/, "")}.png", :width => 30 %> <%= @groupC.teams[counter].name %></div>
+					</div>
+				<% end %>
+			</section>
+		
+	</div>
+
+
+
+	<div class="main-row">
+	
+			<section class="group">
+				<div class="title"><%= @groupD.name %></div>
+				
+				<% 4.times do |counter| %>
+					<div class="team-row">
+						<div class="player" id="player-<%= @groupD.teams[counter].id %>"></div>
+						<div class="team"><%= image_tag "#{@groupD.teams[counter].name.downcase.gsub(/\s+/, "")}.png", :width => 30 %> <%= @groupD.teams[counter].name %></div>
+					</div>
+				<% end %>
+			</section>
+
+			<section class="logo">
+				<div class="middle">
+					<%= image_tag 'middle.png' %>
+				</div>
+			</section>
+
+			<section class="group">
+				<div class="title"><%= @groupE.name %></div>
+				
+				<% 4.times do |counter| %>
+					<div class="team-row">
+						<div class="player" id="player-<%= @groupE.teams[counter].id %>"></div>
+						<div class="team"><%= image_tag "#{@groupE.teams[counter].name.downcase.gsub(/\s+/, "")}.png", :width => 30 %> <%= @groupE.teams[counter].name %></div>
+					</div>
+				<% end %>
+			</section>
+		
+	</div>
+
+
+	<div class="main-row">
+	
+			<section class="group">
+				<div class="title"><%= @groupF.name %></div>
+				
+				<% 4.times do |counter| %>
+					<div class="team-row">
+						<div class="player" id="player-<%= @groupF.teams[counter].id %>"></div>
+						<div class="team"><%= image_tag "#{@groupF.teams[counter].name.downcase.gsub(/\s+/, "")}.png", :width => 30 %> <%= @groupF.teams[counter].name %></div>
+					</div>
+				<% end %>
+			</section>
+
+			<section class="group">
+				<div class="title"><%= @groupG.name %></div>
+				
+				<% 4.times do |counter| %>
+					<div class="team-row">
+						<div class="player" id="player-<%= @groupG.teams[counter].id %>"></div>
+						<div class="team"><%= image_tag "#{@groupG.teams[counter].name.downcase.gsub(/\s+/, "")}.png", :width => 30 %> <%= @groupG.teams[counter].name %></div>
+					</div>
+				<% end %>
+			</section>
+
+			<section class="group">
+				<div class="title"><%= @groupH.name %></div>
+				
+				<% 4.times do |counter| %>
+					<div class="team-row">
+						<div class="player" id="player-<%= @groupH.teams[counter].id %>"></div>
+						<div class="team"><%= image_tag "#{@groupH.teams[counter].name.downcase.gsub(/\s+/, "")}.png", :width => 30 %> <%= @groupH.teams[counter].name %></div>
+					</div>
+				<% end %>
+			</section>
+		
+	</div>
+
 </div>
-<div id="footer"></div>
+
+<section id="form">
+
+	<%= simple_form_for @teams do |f| %>
+  	<%= f.input :username %>
+  	<%= f.input :password %>
+  	<%= f.button :submit %>
+	<% end %>
+
+</section>
+
+<div id="footer">Bleep Systems Ltd</div>
 
 <%= javascript_tag do %>
 $(function(){
-	worldcup.start({
-		groups: gon.groups
-	});
+	wc = new wc;
+	wc.getData();
+
+	setInterval(function(){
+		wc.getData()
+	},2000)
+
 });
 <% end %>

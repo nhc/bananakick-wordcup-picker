@@ -9,6 +9,9 @@ namespace :seed do
     Team.destroy_all
     Team.reset_pk_sequence
 
+    Player.destroy_all
+    Player.reset_pk_sequence
+
   	g = Group.create(id: 1, name: 'Group A')
     Team.create(name: 'Brazil', group: g)
     Team.create(name: 'Croatia', group: g)
@@ -55,7 +58,13 @@ namespace :seed do
     Team.create(name: 'Belgium', group: g)
     Team.create(name: 'Algeria', group: g)
     Team.create(name: "Russia", group: g)
-    Team.first_or_create(name: 'Korea Republic', group: g)
+    Team.create(name: 'South Korea', group: g)
+
+    name = %w( Jamie Oliver Lou Sian Luke Lorna Sara Poppy James Jess Ash Meg Mike Barney Sankey Jordan April Dave Phil Tom Emma Gav Alex Andy Matt Coups Thea Ed Janice Rich Gary Nick-G Claire Katherine Vic  )
+    
+    name.each do |n|
+        Player.create(name: n)
+    end
   end
 
 end
