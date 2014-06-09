@@ -12,6 +12,9 @@ namespace :seed do
     Player.destroy_all
     Player.reset_pk_sequence
 
+    Golden.destroy_all
+    Golden.reset_pk_sequence
+
   	g = Group.create(id: 1, name: 'Group A')
     Team.create(name: 'Brazil', group: g)
     Team.create(name: 'Croatia', group: g)
@@ -67,6 +70,10 @@ namespace :seed do
     name.each do |n|
         Player.create(name: n.to_s)
     end
+
+    Golden.create(:id => 1, :name => 'Golden Ball 1')
+    Golden.create(:id => 2, :name => 'Golden Ball 2')
+    Golden.create(:id => 3, :name => 'Golden Ball 3')
   end
 
 end

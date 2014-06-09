@@ -1,9 +1,22 @@
-<section id="form">
+<section class="form">
 
 	<%= raw(flash[:notice]) %>
 	<br /><br />
 	<%= simple_form_for :player, :url => player_custom_update_path(1) do |f| %>
   	<%= f.select :id, Player.all.order('name').map{ |r| [ r.name, r.id ] } %>
+  	<%= f.select :team_id, Team.all.order('name').map{ |r| [ r.name, r.id ] } %>
+  	<%= f.submit 'Save!'  %>
+	<% end %>
+
+</section>
+
+<section class="form">
+
+	<%= raw(flash[:message]) %>
+	<br /><br />
+	<%= simple_form_for :golden, :url => player_custom_update_golden_path(1) do |f| %>
+  	<%= f.select :id, Golden.all.order('name').map{ |r| [ r.name, r.id ] } %>
+  	<%= f.select :player_id, Player.all.order('name').map{ |r| [ r.name, r.id ] } %>
   	<%= f.select :team_id, Team.all.order('name').map{ |r| [ r.name, r.id ] } %>
   	<%= f.submit 'Save!'  %>
 	<% end %>

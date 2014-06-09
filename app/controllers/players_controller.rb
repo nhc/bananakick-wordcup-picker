@@ -66,6 +66,22 @@ class PlayersController < ApplicationController
     end
   end
 
+  def custom_update_golden
+
+    @player = Golden.find(params[:golden][:id])
+   
+    respond_to do |format|
+      if @player.update_attributes(golden_params)
+        team = @player.team ? @player.team.name : 'BLANK'
+        format.html { redirect_to admin_index_path, :message => "Player <strong>#{@player.name}</strong> assigned team <strong>#{team}</strong>" }
+        #format.json { head :no_content }
+      else
+        format.html { redirect_to admin_index_path, :message => "Error. Relationship already exists" }
+        #format.json { render json: @player.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # DELETE /players/1
   # DELETE /players/1.json
   def destroy
@@ -85,5 +101,9 @@ class PlayersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def player_params
       params.required(:player).permit(:id, :team_id)
+    end
+
+     def golden_params
+      params.required(:golden).permit(:id, :team_id, :player_id)
     end
 end

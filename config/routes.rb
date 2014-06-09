@@ -8,9 +8,10 @@ BananakickWorldcup::Application.routes.draw do
 
   resources :admin, only: [:index]
 
-  resources :groups, :teams
+  resources :groups, :teams, :golden
   resources :players do
     post 'custom_update' => "players#custom_update"
+    post 'custom_update_golden' => "players#custom_update_golden"
   end
 
   # Example of regular route:
