@@ -1,4 +1,4 @@
 bananakick-wordcup-picker
 =========================
 
-Simple Rails / Backbone / Marionette App for recording who has which team for the WC. 
+Simple Rails App for recording who has which team for the WC. 
