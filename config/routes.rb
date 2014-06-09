@@ -3,7 +3,10 @@ BananakickWorldcup::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+  get 'static' => 'application#index'
   root 'application#index'
+
+  resources :groups
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

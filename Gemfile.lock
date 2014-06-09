@@ -19,6 +19,7 @@ GEM
       activesupport (= 4.0.4)
       arel (~> 4.0.0)
     activerecord-deprecated_finders (1.0.3)
+    activerecord-reset-pk-sequence (0.2.0)
     activesupport (4.0.4)
       i18n (~> 0.6, >= 0.6.9)
       minitest (~> 4.2)
@@ -27,6 +28,7 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.2)
     builder (3.1.4)
+    chunky_png (1.3.1)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -34,6 +36,13 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    compass (0.12.6)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.2.19)
+    compass-rails (1.1.7)
+      compass (>= 0.12.2)
+      sprockets (<= 2.11.0)
     daemons (1.1.9)
     eco (1.0.0)
       coffee-script
@@ -43,6 +52,10 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.1.0)
+    fssm (0.2.10)
+    gon (5.0.4)
+      actionpack (>= 2.3.0)
+      json
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (1.5.3)
@@ -51,6 +64,9 @@ GEM
     jquery-rails (3.1.0)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    js-routes (0.9.7)
+      railties (>= 3.2)
+      sprockets-rails
     json (1.8.1)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -58,7 +74,11 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.10.1)
+    oj (2.7.3)
+    pg (0.17.1)
     polyglot (0.3.5)
+    rabl (0.9.3)
+      activesupport (>= 2.3.14)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -96,7 +116,6 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
-    sqlite3 (1.3.9)
     thin (1.6.2)
       daemons (>= 1.0.9)
       eventmachine (>= 1.0.0)
@@ -116,13 +135,19 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-reset-pk-sequence
   coffee-rails (~> 4.0.0)
+  compass-rails
   eco
+  gon
   jbuilder (~> 1.2)
   jquery-rails
+  js-routes
+  oj
+  pg
+  rabl
   rails (= 4.0.4)
   sass-rails (~> 4.0.2)
   sdoc
-  sqlite3
   thin
   uglifier (>= 1.3.0)

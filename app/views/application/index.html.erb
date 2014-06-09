@@ -7,6 +7,8 @@
 
 <%= javascript_tag do %>
 $(function(){
-	worldcup.start();
+	worldcup.start({
+		groups: gon.groups
+	});
 });
 <% end %>

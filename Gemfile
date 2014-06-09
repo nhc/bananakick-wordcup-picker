@@ -4,12 +4,17 @@ source 'https://rubygems.org'
 gem 'thin'
 gem 'eco'
 gem 'compass-rails'
+gem 'activerecord-reset-pk-sequence'
+gem 'rabl'
+gem 'oj'
+gem 'gon'
+gem 'js-routes'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'

@@ -7,3 +7,4 @@ do (Backbone) ->
 
 		getCurrentRoute: ->
 			Backbone.history.fragment
+		

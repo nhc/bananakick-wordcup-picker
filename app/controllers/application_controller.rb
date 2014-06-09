@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def index
-
+  	#@groups = Group.all
+  	#gon.rabl 'app/views/groups/index.json.rabl', as: 'groups'
   end
 end
