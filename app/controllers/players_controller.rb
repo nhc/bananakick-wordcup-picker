@@ -73,7 +73,7 @@ class PlayersController < ApplicationController
     respond_to do |format|
       if @player.update_attributes(golden_params)
         team = @player.team ? @player.team.name : 'BLANK'
-        format.html { redirect_to admin_index_path, :message => "Player <strong>#{@player.name}</strong> assigned team <strong>#{team}</strong>" }
+        format.html { redirect_to admin_index_path, :message => "<strong>Golden Ball #{params[:golden][:id]}</strong> assigned player / team <strong>#{@player.player.name} / #{team}</strong>" }
         #format.json { head :no_content }
       else
         format.html { redirect_to admin_index_path, :message => "Error. Relationship already exists" }
