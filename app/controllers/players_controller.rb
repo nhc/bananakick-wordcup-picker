@@ -70,10 +70,15 @@ class PlayersController < ApplicationController
 
     @player = Golden.find(params[:golden][:id])
    
+    if params[:golden][:team_id].to_s == '33' and params[:golden][:player_id].to_s == '0'
+       params[:golden][:team_id] = nil
+       params[:golden][:player_id] = nil
+    end
     respond_to do |format|
       if @player.update_attributes(golden_params)
         team = @player.team ? @player.team.name : 'BLANK'
-        format.html { redirect_to admin_index_path, :message => "<strong>Golden Ball #{params[:golden][:id]}</strong> assigned player / team <strong>#{@player.player.name} / #{team}</strong>" }
+        player_name = @player.player ? @player.player.name : 'BLANK'
+        format.html { redirect_to admin_index_path, :message => "<strong>Golden Ball #{params[:golden][:id]}</strong> assigned player / team <strong>#{player_name} / #{team}</strong>" }
         #format.json { head :no_content }
       else
         format.html { redirect_to admin_index_path, :message => "Error. Relationship already exists" }

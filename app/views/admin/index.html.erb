@@ -16,7 +16,7 @@
 	<br /><br />
 	<%= simple_form_for :golden, :url => player_custom_update_golden_path(1) do |f| %>
   	<%= f.select :id, Golden.all.order('name').map{ |r| [ r.name, r.id ] } %>
-  	<%= f.select :player_id, Player.all.order('name').map{ |r| [ r.name, r.id ] } %>
+  	<%= f.select :player_id, [['-- BLANK --','0']] + Player.all.order('name').map{ |r| [ r.name, r.id ] } %>
   	<%= f.select :team_id, Team.all.order('name').map{ |r| [ r.name, r.id ] } %>
   	<%= f.submit 'Save!'  %>
 	<% end %>
